@@ -1,0 +1,138 @@
+H:\Game1\Game1\bin\Windows\Debug\Game1.exe
+H:\Game1\Game1\bin\Windows\Debug\Game1.pdb
+H:\Game1\Game1\bin\Windows\Debug\MonoGame.Framework.dll
+H:\Game1\Game1\bin\Windows\Debug\SharpDX.MediaFoundation.dll
+H:\Game1\Game1\bin\Windows\Debug\SharpDX.dll
+H:\Game1\Game1\bin\Windows\Debug\SharpDX.XAudio2.dll
+H:\Game1\Game1\bin\Windows\Debug\SharpDX.Direct3D11.dll
+H:\Game1\Game1\bin\Windows\Debug\SharpDX.DXGI.dll
+H:\Game1\Game1\bin\Windows\Debug\SharpDX.Direct2D1.dll
+H:\Game1\Game1\bin\Windows\Debug\SharpDX.XInput.dll
+H:\Game1\Game1\bin\Windows\Debug\SharpDX.RawInput.dll
+H:\Game1\Game1\bin\Windows\Debug\SharpDX.Direct3D9.dll
+H:\Game1\Game1\bin\Windows\Debug\MonoGame.Framework.xml
+H:\Game1\Game1\bin\Windows\Debug\SharpDX.MediaFoundation.xml
+H:\Game1\Game1\bin\Windows\Debug\SharpDX.xml
+H:\Game1\Game1\bin\Windows\Debug\SharpDX.XAudio2.xml
+H:\Game1\Game1\bin\Windows\Debug\SharpDX.Direct3D11.xml
+H:\Game1\Game1\bin\Windows\Debug\SharpDX.DXGI.xml
+H:\Game1\Game1\bin\Windows\Debug\SharpDX.Direct2D1.xml
+H:\Game1\Game1\bin\Windows\Debug\SharpDX.XInput.xml
+H:\Game1\Game1\bin\Windows\Debug\SharpDX.RawInput.xml
+H:\Game1\Game1\bin\Windows\Debug\SharpDX.Direct3D9.xml
+H:\Game1\Game1\obj\x86\Debug\Game1.csprojResolveAssemblyReference.cache
+H:\Game1\Game1\obj\x86\Debug\Game1.exe
+H:\Game1\Game1\obj\x86\Debug\Game1.pdb
+H:\Game1\Game1\bin\Windows\Debug\Content\button.png
+H:\Game1\Game1\bin\Windows\Debug\Content\Char21.png
+H:\Game1\Game1\bin\Windows\Debug\Content\Char33.png
+F:\Game1\Game1\obj\x86\Debug\Game1.exe
+F:\Game1\Game1\obj\x86\Debug\Game1.pdb
+F:\Game1\Game1\obj\x86\Debug\Game1.csprojResolveAssemblyReference.cache
+F:\Game1\Game1\bin\Windows\Debug\Game1.exe.config
+F:\Game1\Game1\bin\Windows\Debug\Content\button.png
+F:\Game1\Game1\bin\Windows\Debug\Content\Char21.png
+F:\Game1\Game1\bin\Windows\Debug\Content\Char33.png
+F:\Game1\Game1\bin\Windows\Debug\Game1.exe
+F:\Game1\Game1\bin\Windows\Debug\Game1.pdb
+F:\Game1\Game1\bin\Windows\Debug\MonoGame.Framework.dll
+F:\Game1\Game1\bin\Windows\Debug\SharpDX.MediaFoundation.dll
+F:\Game1\Game1\bin\Windows\Debug\SharpDX.dll
+F:\Game1\Game1\bin\Windows\Debug\SharpDX.XAudio2.dll
+F:\Game1\Game1\bin\Windows\Debug\SharpDX.DXGI.dll
+F:\Game1\Game1\bin\Windows\Debug\SharpDX.Direct3D11.dll
+F:\Game1\Game1\bin\Windows\Debug\SharpDX.Direct2D1.dll
+F:\Game1\Game1\bin\Windows\Debug\SharpDX.XInput.dll
+F:\Game1\Game1\bin\Windows\Debug\SharpDX.RawInput.dll
+F:\Game1\Game1\bin\Windows\Debug\SharpDX.Direct3D9.dll
+F:\Game1\Game1\bin\Windows\Debug\MonoGame.Framework.xml
+F:\Game1\Game1\bin\Windows\Debug\SharpDX.MediaFoundation.xml
+F:\Game1\Game1\bin\Windows\Debug\SharpDX.xml
+F:\Game1\Game1\bin\Windows\Debug\SharpDX.XAudio2.xml
+F:\Game1\Game1\bin\Windows\Debug\SharpDX.DXGI.xml
+F:\Game1\Game1\bin\Windows\Debug\SharpDX.Direct3D11.xml
+F:\Game1\Game1\bin\Windows\Debug\SharpDX.Direct2D1.xml
+F:\Game1\Game1\bin\Windows\Debug\SharpDX.XInput.xml
+F:\Game1\Game1\bin\Windows\Debug\SharpDX.RawInput.xml
+F:\Game1\Game1\bin\Windows\Debug\SharpDX.Direct3D9.xml
+F:\Game1\Game1\bin\Windows\Debug\Content\button1p.png
+F:\Game1\Game1\bin\Windows\Debug\Content\button2p.png
+F:\Game1\Game1\bin\Windows\Debug\Content\buttonRst.png
+F:\Game1\Game1\bin\Windows\Debug\Content\console.jpg
+F:\Game1\Game1\bin\Windows\Debug\Content\Person.jpg
+F:\Game1\Game1\bin\Windows\Debug\Content\luigi.wav
+F:\Game1\Game1\bin\Windows\Debug\Content\luigiWins.wav
+F:\Game1\Game1\bin\Windows\Debug\Content\mario.wav
+F:\Game1\Game1\bin\Windows\Debug\Content\marioWins.wav
+F:\Game1\Game1\bin\Windows\Debug\Content\luigi.xnb
+F:\Game1\Game1\bin\Windows\Debug\Content\luigiWins.xnb
+F:\Game1\Game1\bin\Windows\Debug\Content\mario.xnb
+F:\Game1\Game1\bin\Windows\Debug\Content\marioWins.xnb
+F:\Game1\Game1\bin\Windows\Debug\Content\luigi.wma
+F:\Game1\Game1\bin\Windows\Debug\Content\luigiWins.wma
+F:\Game1\Game1\bin\Windows\Debug\Content\mario.wma
+F:\Game1\Game1\bin\Windows\Debug\Content\marioWins.wma
+H:\Game1\Game1\bin\Windows\Debug\Game1.exe.config
+H:\Game1\Game1\bin\Windows\Debug\Content\font.xnb
+H:\Game1\Game1\bin\Windows\Debug\Content\luigi.xnb
+H:\Game1\Game1\bin\Windows\Debug\Content\luigiWins.xnb
+H:\Game1\Game1\bin\Windows\Debug\Content\mario.xnb
+H:\Game1\Game1\bin\Windows\Debug\Content\marioWins.xnb
+H:\Game1\Game1\bin\Windows\Debug\Content\button1p.png
+H:\Game1\Game1\bin\Windows\Debug\Content\button2p.png
+H:\Game1\Game1\bin\Windows\Debug\Content\buttonRst.png
+H:\Game1\Game1\bin\Windows\Debug\Content\console.jpg
+H:\Game1\Game1\bin\Windows\Debug\Content\luigi.wav
+H:\Game1\Game1\bin\Windows\Debug\Content\luigiWins.wav
+H:\Game1\Game1\bin\Windows\Debug\Content\mario.wav
+H:\Game1\Game1\bin\Windows\Debug\Content\marioWins.wav
+H:\Game1\Game1\bin\Windows\Debug\Content\Person.jpg
+H:\Game1\Game1\bin\Windows\Debug\Content\bowser.jpg
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Game1.exe.config
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\obj\x86\Debug\Game1.exe
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\obj\x86\Debug\Game1.pdb
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\luigi.wma
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\luigiWins.wma
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\mario.wma
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\marioWins.wma
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\font.xnb
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\luigi.xnb
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\luigiWins.xnb
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\mario.xnb
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\marioWins.xnb
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\bowser.jpg
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\button.png
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\button1p.png
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\button2p.png
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\buttonRst.png
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\Char21.png
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\Char33.png
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\console.jpg
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\luigi.wav
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\luigiWins.wav
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\mario.wav
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\marioWins.wav
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\Person.jpg
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Game1.exe
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Game1.pdb
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\MonoGame.Framework.dll
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\SharpDX.MediaFoundation.dll
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\SharpDX.dll
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\SharpDX.XAudio2.dll
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\SharpDX.DXGI.dll
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\SharpDX.Direct3D11.dll
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\SharpDX.Direct2D1.dll
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\SharpDX.XInput.dll
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\SharpDX.RawInput.dll
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\SharpDX.Direct3D9.dll
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\MonoGame.Framework.xml
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\SharpDX.MediaFoundation.xml
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\SharpDX.xml
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\SharpDX.XAudio2.xml
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\SharpDX.DXGI.xml
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\SharpDX.Direct3D11.xml
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\SharpDX.Direct2D1.xml
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\SharpDX.XInput.xml
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\SharpDX.RawInput.xml
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\SharpDX.Direct3D9.xml
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\obj\x86\Debug\Game1.csprojResolveAssemblyReference.cache

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <SourceFile>C:/Users/JAT/Desktop/Nova pasta/Game1/Game1/Content/font.spritefont</SourceFile>
+  <SourceTime>2015-01-19T22:24:04-02:00</SourceTime>
+  <DestFile>C:/Users/JAT/Desktop/Nova pasta/Game1/Game1/Content/bin/Windows/font.xnb</DestFile>
+  <DestTime>2016-04-22T23:57:18.8089294-03:00</DestTime>
+  <Importer>FontDescriptionImporter</Importer>
+  <ImporterTime>2016-03-30T03:36:08-03:00</ImporterTime>
+  <Processor>FontDescriptionProcessor</Processor>
+  <ProcessorTime>2016-03-30T03:36:08-03:00</ProcessorTime>
+  <Parameters>
+    <Key>TextureFormat</Key>
+    <Value>Compressed</Value>
+  </Parameters>
+  <Dependencies />
+  <BuildAsset />
+  <BuildOutput />
+</PipelineBuildEvent>
