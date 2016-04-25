@@ -65,7 +65,7 @@ namespace Game1
 
         public char gameState(int[] gameBoard, int player) {
             if ((gameBoard[0] == player && gameBoard[1] == player && gameBoard[2] == player) ||
-                (gameBoard[3] == player && gameBoard[4] == player && gameBoard[6] == player) ||
+                (gameBoard[3] == player && gameBoard[4] == player && gameBoard[5] == player) ||
                 (gameBoard[6] == player && gameBoard[7] == player && gameBoard[8] == player))
             {
                 return 'w';
@@ -91,6 +91,16 @@ namespace Game1
             else {
                 return 'd';
             }
+        }
+
+        public int emptyPos() {
+            int empty = 0;
+            for (int i = 0; i < board.Length; i++) {
+                if (board[i] == 0) {
+                    empty++;
+                }
+            }
+            return empty;
         }
     }
 }

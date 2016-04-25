@@ -1,9 +1,10 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
 using Microsoft.Xna.Framework.Audio;
 using System;
+using Game1.Minimax;
+
 
 namespace Game1
 {
@@ -24,7 +25,7 @@ namespace Game1
         
         int[] board;
         int player;
-        bool but1Select, but2Select, endGame, draw, xWins, oWins, easy, hard, compStarts, userStarts;
+        bool but1Select, but2Select, endGame, draw, xWins, oWins, easy, hard, compStarts, userStarts, empty;
 
         public Game1()
         {
@@ -70,7 +71,7 @@ namespace Game1
             table = new Board();
 
             board = new int[9];
-            but1Select = but2Select = endGame = draw = xWins = oWins = easy = hard = compStarts = userStarts = false;
+            but1Select = but2Select = endGame = draw = xWins = oWins = easy = hard = compStarts = userStarts = empty = false;
 
         }
 
@@ -88,12 +89,12 @@ namespace Game1
             if (but1Select && !endGame) {
                 if (easy)
                 {
-                    play1Easy(gameTime);
                     endGame = gameEnded();
+                    play1Easy(gameTime);
                 }
                 if(hard) {
-                    play1Hard(gameTime);
                     endGame = gameEnded();
+                    play1Hard(gameTime);
                 }
             }
             if (but2Select && !endGame) {
@@ -240,7 +241,39 @@ namespace Game1
             }
         }
 
-        public void play1Hard(GameTime gameTime) { }
+        public void play1Hard(GameTime gameTime) {
+            if (compStarts)
+            {
+                if (empty)
+                {
+                    randComputer();
+                    empty = false;
+                }
+                else {
+                    if ((player % 2) == 1)
+                    {
+                        play2Players();
+                    }
+                    if ((player % 2) == 0)
+                    {
+                        Minimax.Minimax minimax = new Minimax.Minimax(board);
+                        board = minimax.tree.root.nodes[minimax.run(minimax.tree.root)].state.board;
+                    }
+                }
+            }
+            if (userStarts)
+            {
+                if ((player % 2) == 1)
+                {
+                    play2Players();
+                }
+                if ((player % 2) == 0)
+                {
+                    Minimax.Minimax minimax = new Minimax.Minimax(board);
+                    board = minimax.tree.root.nodes[minimax.run(minimax.tree.root)].state.board;
+                }
+            }
+        }
 
         public void play2Players() {
             int x = mouse.X, y = mouse.Y;
@@ -278,6 +311,7 @@ namespace Game1
             if ('x' == table.getState(board)) {
                 aux = true;
                 xWins = true;
+                oWins =  false;
                 luigiWins.Play(1.0f, 0.0f, 0.0f);
                 Console.WriteLine("X Wins");
             }
@@ -285,6 +319,7 @@ namespace Game1
             {
                 aux = true;
                 oWins = true;
+                xWins = false;
                 Console.WriteLine("O Wins");
                 marioWins.Play(1.0f, 0.0f, 0.0f);
             }
@@ -333,18 +368,22 @@ namespace Game1
             {
                 if ((player % 2) == 0)
                 {
-                    int index = availableSpace();
-                    int x = ((index % 3) * 150) + 175;
-                    int y = ((int)(index / 3) * 150) + 75;
-                    table.changeState((x - 175), (y - 75), ((player % 2) + 1));
-                    playSound();
-                    changePlayer();
+                    randComputer();
                 }
             }
             if ((player % 2) == 1)
             {
                 play2Players();
             }
+        }
+
+        public void randComputer() {
+            int index = availableSpace();
+            int x = ((index % 3) * 150) + 175;
+            int y = ((int)(index / 3) * 150) + 75;
+            table.changeState((x - 175), (y - 75), ((player % 2) + 1));
+            playSound();
+            changePlayer();
         }
 
         public bool timer(GameTime gameTime) {

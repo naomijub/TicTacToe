@@ -46,6 +46,10 @@
     <Compile Include="Button.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Lines.cs" />
+    <Compile Include="Minimax\BoardState.cs" />
+    <Compile Include="Minimax\Minimax.cs" />
+    <Compile Include="Minimax\Node.cs" />
+    <Compile Include="Minimax\Tree.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
