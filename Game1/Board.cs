@@ -15,6 +15,10 @@ namespace Game1
             reset();
         }
 
+        public Board(int[] board) {
+            this.board = (int[])board.Clone(); ;
+        }
+
         public void reset() {
             for (int i = 0; i < board.Length; i++)
             {
@@ -101,6 +105,24 @@ namespace Game1
                 }
             }
             return empty;
+        }
+
+        //neo method
+        public IList<Board> getPossibilities(int player) {
+            IList<Board> boards = new List<Board>();
+            for (int i = 0; i < board.Length; i++) {
+                if (board[i] == 0) {
+                    int[] auxBoard = new int[9];
+                    //for (int j = 0; j < board.Length; j++) {
+                    //    auxBoard[j] = board[j];
+                    //}
+                    auxBoard = (int[])board.Clone();
+                    auxBoard[i] = player;
+                    Board aux = new Board(auxBoard);
+                    boards.Add(aux);
+                }
+             }
+            return boards;
         }
     }
 }

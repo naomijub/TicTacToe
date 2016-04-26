@@ -71,7 +71,8 @@ namespace Game1
             table = new Board();
 
             board = new int[9];
-            but1Select = but2Select = endGame = draw = xWins = oWins = easy = hard = compStarts = userStarts = empty = false;
+            but1Select = but2Select = endGame = draw = xWins = oWins = easy = hard = compStarts = userStarts = false;
+            empty = true;
 
         }
 
@@ -89,18 +90,17 @@ namespace Game1
             if (but1Select && !endGame) {
                 if (easy)
                 {
-                    endGame = gameEnded();
                     play1Easy(gameTime);
+                    endGame = gameEnded();
                 }
                 if(hard) {
-                    endGame = gameEnded();
                     play1Hard(gameTime);
+                    endGame = gameEnded();
                 }
             }
             if (but2Select && !endGame) {
-                endGame = gameEnded();
                 play2Players();
-                
+                endGame = gameEnded();
             }
 
             base.Update(gameTime);
@@ -244,7 +244,7 @@ namespace Game1
         public void play1Hard(GameTime gameTime) {
             if (compStarts)
             {
-                if (empty)
+                if (empty && ((player % 2) == 0))
                 {
                     randComputer();
                     empty = false;
@@ -255,9 +255,11 @@ namespace Game1
                         play2Players();
                     }
                     if ((player % 2) == 0)
-                    {
-                        Minimax.Minimax minimax = new Minimax.Minimax(board);
-                        board = minimax.tree.root.nodes[minimax.run(minimax.tree.root)].state.board;
+                   {
+                        Minimax.Minimax minimax = new Minimax.Minimax();
+                        table.board = (int[])minimax.bestBoard(board, 1).Clone();
+                        changePlayer();
+                        
                     }
                 }
             }
@@ -269,8 +271,9 @@ namespace Game1
                 }
                 if ((player % 2) == 0)
                 {
-                    Minimax.Minimax minimax = new Minimax.Minimax(board);
-                    board = minimax.tree.root.nodes[minimax.run(minimax.tree.root)].state.board;
+                    Minimax.Minimax minimax = new Minimax.Minimax();
+                    table.board = (int[])minimax.bestBoard(board, 1).Clone();
+                    changePlayer();
                 }
             }
         }
