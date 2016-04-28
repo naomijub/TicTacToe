@@ -16,28 +16,30 @@ namespace Game1.Minimax
         public int[] bestBoard(int[] board, int player) {
             Board table = new Board(board);
             IList<Board> boards = table.getPossibilities(player);
-            int aux = -1000, idx = 0; ;
+            int aux = -1000, idx = 0;
 
             for (int i = 0; i < boards.Count; i++)
             {
-                if (run(boards[i].board, 4, player) > aux)
+                int auxTemp = run(boards[i].board, 4, player == 1 ? 2 : 1);
+                if (auxTemp > aux)
                 {
-                    aux = run(boards[i].board, 4, player);
+                    aux = auxTemp;
                     idx = i;
                 }
             }
-            return boards[idx].board;
+            if (boards.Count > 0)
+            {
+                return boards[idx].board;
+            }
+            else {
+                return board;
+            }
         }
 
-        public int run(int[] board, int depth, int player) {
-            //int[] auxBoard = new int[board.Length];
+        public static int run(int[] board, int depth, int player) {
             int value;
-            //for (int i = 0; i < board.Length; i++)
-            //{
-            //    auxBoard[i] = board[i];
-            //}
             Board table = new Board((int[])board.Clone());
-            if (depth == 0 || table.getState(table.board) != 'p') {
+            if (depth == 0 || Board.getState(table.board) != 'p') {
                 return score(table);
             }
             if (player == 2)
@@ -60,8 +62,8 @@ namespace Game1.Minimax
             return value;
         }
 
-        public int score(Board table) {
-            char ch = table.getState(table.board);
+        public static int score(Board table) {
+            char ch = Board.getState(table.board);
 
             switch (ch) {
                 case 'x': return 1;
@@ -71,7 +73,7 @@ namespace Game1.Minimax
             }
         }
 
-        public int min(int a, int b) {
+        public static int min(int a, int b) {
             if (a <= b)
             {
                 return a;
@@ -81,7 +83,7 @@ namespace Game1.Minimax
             }
         }
 
-        public int max(int a, int b)
+        public static int max(int a, int b)
         {
             if (a >= b)
             {

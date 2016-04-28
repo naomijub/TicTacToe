@@ -46,7 +46,7 @@ namespace Game1
         }
 
         //adicioanr possibildiade de teste para o minmax
-        public char getState(int[] gameBoard) {
+        public static char getState(int[] gameBoard) {
             char x = gameState(gameBoard, 1);
             char o = gameState(gameBoard, 2);
 
@@ -67,7 +67,7 @@ namespace Game1
             }
         }
 
-        public char gameState(int[] gameBoard, int player) {
+        public static char gameState(int[] gameBoard, int player) {
             if ((gameBoard[0] == player && gameBoard[1] == player && gameBoard[2] == player) ||
                 (gameBoard[3] == player && gameBoard[4] == player && gameBoard[5] == player) ||
                 (gameBoard[6] == player && gameBoard[7] == player && gameBoard[8] == player))

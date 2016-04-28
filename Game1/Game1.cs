@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Audio;
 using System;
 using Game1.Minimax;
+using Game1.Contents;
 
 
 namespace Game1
@@ -18,6 +19,7 @@ namespace Game1
         SoundEffect luigi, mario, marioWins, luigiWins;
         Button bEasy, bHard, b1P, b2P, bReset;
         Lines liner;
+        Random rg;
 
         MouseState prevState;
         MouseState mouse;
@@ -67,6 +69,8 @@ namespace Game1
             b2P = new Button(402, 5, 422, 15, "2 Player", button, Color.Black, font);
             liner = new Lines(lines);
 
+            rg = new Random();
+
             mouse = Mouse.GetState();
             table = new Board();
 
@@ -83,18 +87,24 @@ namespace Game1
 
         protected override void Update(GameTime gameTime)
         {
-            //if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
-            //Exit();
             board = table.board;
             buttonclick();
             if (but1Select && !endGame) {
                 if (easy)
                 {
-                    play1Easy(gameTime);
+                    endGame = gameEnded();
+                    if (!endGame)
+                    {
+                        play1Easy(gameTime);
+                    }
                     endGame = gameEnded();
                 }
                 if(hard) {
-                    play1Hard(gameTime);
+                    endGame = gameEnded();
+                    if (!endGame)
+                    {
+                        play1Hard(gameTime);
+                    }
                     endGame = gameEnded();
                 }
             }
@@ -182,46 +192,55 @@ namespace Game1
             prevState = mouse;
             mouse = Mouse.GetState();
             int x = mouse.X, y = mouse.Y;
+            ButtonClick but1 = new ButtonClick(278, 398, 5, 55);
+            ButtonClick but2 = new ButtonClick(402, 520, 5, 55);
+            ButtonClick butReset = new ButtonClick(350, 470, 570, 620);
+            ButtonClick butComp = new ButtonClick(240, 320, 570, 650);
+            ButtonClick butUser = new ButtonClick(480, 560, 570, 650);
+            ButtonClick butEasy = new ButtonClick(40, 160, 540, 590);
+            ButtonClick butHard = new ButtonClick(40, 160, 600, 650);
 
-            if ((x >= 278 && x <= 398) && (y >= 5 && y <= 55) && (mouse.LeftButton == ButtonState.Pressed && prevState.LeftButton == ButtonState.Released)) {
+
+            if (but1.state(x, y, mouse, prevState)) {
                 but1Select = true;
                 but2Select = false;
                 player = 0;
             }
-            if ((x >= 402 && x <= 520) && (y >= 5 && y <= 55) && (mouse.LeftButton == ButtonState.Pressed && prevState.LeftButton == ButtonState.Released))
+            if (but2.state(x, y, mouse, prevState))
             {
                 but1Select = false;
                 but2Select = true;
                 player = 0;
             }
-            if ((x >= 350 && x <= 470) && (y >= 570 && y <= 620) && (mouse.LeftButton == ButtonState.Pressed && prevState.LeftButton == ButtonState.Released)
+            if (butReset.state(x, y, mouse, prevState)
                 && (but1Select || but2Select))
             {
                 but1Select = but2Select = endGame = draw = xWins = oWins = compStarts = userStarts = easy = hard = false;
+                empty = true;
                 table.reset();
                 player = 1;
             }
-            if ((x >= 240 && x <= 320) && (y >= 570 && y <= 650) && (mouse.LeftButton == ButtonState.Pressed && prevState.LeftButton == ButtonState.Released)
+            if (butComp.state(x, y, mouse, prevState)
                 && but1Select && !userStarts)
             {
                 compStarts = true;
                 userStarts = false;
                 player = 0;
             }
-            if ((x >= 480 && x <= 560) && (y >= 570 && y <= 650) && (mouse.LeftButton == ButtonState.Pressed && prevState.LeftButton == ButtonState.Released)
+            if (butUser.state(x, y, mouse, prevState)
                 && but1Select && !compStarts)
             {
                 userStarts = true;
                 compStarts = false;
                 player = 1;
             }
-            if ((x >= 40 && x <= 160) && (y >= 540 && y <= 590) && (mouse.LeftButton == ButtonState.Pressed && prevState.LeftButton == ButtonState.Released)
+            if (butEasy.state(x, y, mouse, prevState)
                 && !hard){
                 easy = true;
                 hard = false;
                 Console.WriteLine("Easy");
             }
-            if ((x >= 40 && x <= 160) && (y >= 600 && y <= 650) && (mouse.LeftButton == ButtonState.Pressed && prevState.LeftButton == ButtonState.Released)
+            if (butHard.state(x, y, mouse, prevState)
                 && !easy){
                 easy = false;
                 hard = true;
@@ -250,31 +269,12 @@ namespace Game1
                     empty = false;
                 }
                 else {
-                    if ((player % 2) == 1)
-                    {
-                        play2Players();
-                    }
-                    if ((player % 2) == 0)
-                   {
-                        Minimax.Minimax minimax = new Minimax.Minimax();
-                        table.board = (int[])minimax.bestBoard(board, 1).Clone();
-                        changePlayer();
-                        
-                    }
+                    minimaxPlay();
                 }
             }
             if (userStarts)
             {
-                if ((player % 2) == 1)
-                {
-                    play2Players();
-                }
-                if ((player % 2) == 0)
-                {
-                    Minimax.Minimax minimax = new Minimax.Minimax();
-                    table.board = (int[])minimax.bestBoard(board, 1).Clone();
-                    changePlayer();
-                }
+                minimaxPlay();
             }
         }
 
@@ -283,8 +283,6 @@ namespace Game1
 
             if ((x >= 175 && x <= 635) && (y >= 75 && y <= 535)) {
                 if (mouse.LeftButton == ButtonState.Pressed && prevState.LeftButton == ButtonState.Released) {
-                    //Console.WriteLine("Mouse X/Y: " + x + " / " + y);
-                    //Console.WriteLine("Player: " + ((player % 2) + 1));
                     int index = (int)((x - 175) / 150) + (3 * (int)((y - 75) / 150));
                     if (table.board[index] == 0)
                     {
@@ -293,7 +291,6 @@ namespace Game1
                         changePlayer();
                     }
                     board = table.board;
-                    //printBoard();
                 }
             }
         }
@@ -303,22 +300,16 @@ namespace Game1
             
         }
 
-        public void printBoard() {
-            Console.WriteLine("[" + board[0] + "|" + board[1] + "|" + board[2] + "]");
-            Console.WriteLine("[" + board[3] + "|" + board[4] + "|" + board[5] + "]");
-            Console.WriteLine("[" + board[6] + "|" + board[7] + "|" + board[8] + "]");
-        }
-
         public bool gameEnded() {
             bool aux = false;
-            if ('x' == table.getState(board)) {
+            if ('x' == Board.getState(board)) {
                 aux = true;
                 xWins = true;
                 oWins =  false;
                 luigiWins.Play(1.0f, 0.0f, 0.0f);
                 Console.WriteLine("X Wins");
             }
-            if ('o' == table.getState(board))
+            if ('o' == Board.getState(board))
             {
                 aux = true;
                 oWins = true;
@@ -326,7 +317,7 @@ namespace Game1
                 Console.WriteLine("O Wins");
                 marioWins.Play(1.0f, 0.0f, 0.0f);
             }
-            if ('d' == table.getState(board))
+            if ('d' == Board.getState(board))
             {
                 aux = true;
                 draw = true;
@@ -353,13 +344,13 @@ namespace Game1
         }
 
         public int availableSpace() {
-            Random rg = new Random();
             bool free = false;
             int index = 0;
 
             while (!free)
             {
-                index = rg.Next(0, 9);
+                index = ((rg.Next(0, 9 + DateTime.Now.Second + DateTime.Now.Minute) % 3) + ((rg.Next(0, 13) + DateTime.Now.Millisecond) % 3) 
+                    + ((rg.Next(0, 41) + DateTime.Now.Second) % 5)) ;
                 if (table.board[index] == 0) { free = true; }
             }
 
@@ -398,6 +389,20 @@ namespace Game1
             }
             else {
                 return false;
+            }
+        }
+
+        public void minimaxPlay() {
+            if ((player % 2) == 1)
+            {
+                play2Players();
+            }
+            if ((player % 2) == 0)
+            {
+                Minimax.Minimax minimax = new Minimax.Minimax();
+                table.board = (int[])minimax.bestBoard(board, 1).Clone();
+                changePlayer();
+
             }
         }
     }

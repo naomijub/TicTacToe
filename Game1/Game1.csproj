@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Board.cs" />
     <Compile Include="Button.cs" />
+    <Compile Include="Contents\ButtonClick.cs" />
     <Compile Include="Game1.cs" />
     <Compile Include="Lines.cs" />
     <Compile Include="Minimax\Minimax.cs" />
