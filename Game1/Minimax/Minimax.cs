@@ -20,7 +20,7 @@ namespace Game1.Minimax
 
             for (int i = 0; i < boards.Count; i++)
             {
-                int auxTemp = run(boards[i].board, 4, player == 1 ? 2 : 1);
+                int auxTemp = run(boards[i].board, 8, player == 1 ? 2 : 1);
                 if (auxTemp > aux)
                 {
                     aux = auxTemp;

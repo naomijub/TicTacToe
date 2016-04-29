@@ -102,9 +102,6 @@ C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\mario.xnb
 C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\marioWins.xnb
 C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\bowser.jpg
 C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\button.png
-C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\button1p.png
-C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\button2p.png
-C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\buttonRst.png
 C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\Char21.png
 C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\Char33.png
 C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\console.jpg

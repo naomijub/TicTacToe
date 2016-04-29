@@ -269,12 +269,12 @@ namespace Game1
                     empty = false;
                 }
                 else {
-                    minimaxPlay();
+                    minimaxPlay(gameTime);
                 }
             }
             if (userStarts)
             {
-                minimaxPlay();
+                minimaxPlay(gameTime);
             }
         }
 
@@ -358,7 +358,7 @@ namespace Game1
         }
 
         public void play(GameTime gameTime) {
-            if (timer(gameTime))
+            if (timer(gameTime, 2500))
             {
                 if ((player % 2) == 0)
                 {
@@ -380,10 +380,10 @@ namespace Game1
             changePlayer();
         }
 
-        public bool timer(GameTime gameTime) {
+        public bool timer(GameTime gameTime, int timeMod) {
             int time = (int)gameTime.TotalGameTime.Milliseconds;
             Console.WriteLine(time);
-            if ((time % 2500) == 0)
+            if ((time % timeMod) == 0)
             {
                 return true;
             }
@@ -392,17 +392,20 @@ namespace Game1
             }
         }
 
-        public void minimaxPlay() {
+        public void minimaxPlay(GameTime gameTime) {
             if ((player % 2) == 1)
             {
                 play2Players();
             }
-            if ((player % 2) == 0)
+            if (timer(gameTime, 1000))
             {
-                Minimax.Minimax minimax = new Minimax.Minimax();
-                table.board = (int[])minimax.bestBoard(board, 1).Clone();
-                changePlayer();
-
+                if ((player % 2) == 0)
+                {
+                    Minimax.Minimax minimax = new Minimax.Minimax();
+                    table.board = (int[])minimax.bestBoard(board, 1).Clone();
+                    playSound();
+                    changePlayer();
+                }
             }
         }
     }
