@@ -137,3 +137,4 @@ H:\Game1\Game1\bin\Windows\Debug\Content\luigi.wma
 H:\Game1\Game1\bin\Windows\Debug\Content\luigiWins.wma
 H:\Game1\Game1\bin\Windows\Debug\Content\mario.wma
 H:\Game1\Game1\bin\Windows\Debug\Content\marioWins.wma
+C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\draw.xnb

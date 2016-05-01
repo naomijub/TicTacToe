@@ -16,7 +16,7 @@ namespace Game1
         SpriteBatch spriteBatch;
         Texture2D lines, xTexture, oTexture, compButton, persButton, button, bowser;
         SpriteFont font;
-        SoundEffect luigi, mario, marioWins, luigiWins;
+        SoundEffect luigi, mario, marioWins, luigiWins, drawSound;
         Button bEasy, bHard, b1P, b2P, bReset;
         Lines liner;
         Random rg;
@@ -61,6 +61,7 @@ namespace Game1
             mario = Content.Load<SoundEffect>("mario");
             luigiWins = Content.Load<SoundEffect>("luigiWins");
             marioWins = Content.Load<SoundEffect>("marioWins");
+            drawSound = Content.Load<SoundEffect>("draw");
 
             bEasy = new Button(40, 540, 70, 550, "Easy", button, Color.Red, font);
             bHard = new Button(40, 600, 70, 610, "Hard", button, Color.Red, font);
@@ -92,25 +93,25 @@ namespace Game1
             if (but1Select && !endGame) {
                 if (easy)
                 {
-                    endGame = gameEnded();
+                    endGame = gameEnded(gameTime);
                     if (!endGame)
                     {
                         play1Easy(gameTime);
                     }
-                    endGame = gameEnded();
+                    endGame = gameEnded(gameTime);
                 }
                 if(hard) {
-                    endGame = gameEnded();
+                    endGame = gameEnded(gameTime);
                     if (!endGame)
                     {
                         play1Hard(gameTime);
                     }
-                    endGame = gameEnded();
+                    endGame = gameEnded(gameTime);
                 }
             }
             if (but2Select && !endGame) {
                 play2Players();
-                endGame = gameEnded();
+                endGame = gameEnded(gameTime);
             }
 
             base.Update(gameTime);
@@ -201,16 +202,23 @@ namespace Game1
             ButtonClick butHard = new ButtonClick(40, 160, 600, 650);
 
 
-            if (but1.state(x, y, mouse, prevState)) {
-                but1Select = true;
-                but2Select = false;
-                player = 0;
-            }
-            if (but2.state(x, y, mouse, prevState))
+            if (!but2Select)
             {
-                but1Select = false;
-                but2Select = true;
-                player = 0;
+                if (but1.state(x, y, mouse, prevState))
+                {
+                    but1Select = true;
+                    but2Select = false;
+                    player = 0;
+                }
+            }
+            if (!but1Select)
+            {
+                if (but2.state(x, y, mouse, prevState))
+                {
+                    but1Select = false;
+                    but2Select = true;
+                    player = 0;
+                }
             }
             if (butReset.state(x, y, mouse, prevState)
                 && (but1Select || but2Select))
@@ -300,44 +308,45 @@ namespace Game1
             
         }
 
-        public bool gameEnded() {
+        public bool gameEnded(GameTime gameTime) {
             bool aux = false;
-            if ('x' == Board.getState(board)) {
-                aux = true;
-                xWins = true;
-                oWins =  false;
-                luigiWins.Play(1.0f, 0.0f, 0.0f);
-                Console.WriteLine("X Wins");
-            }
-            if ('o' == Board.getState(board))
+            if (timer(gameTime, 1500))
             {
-                aux = true;
-                oWins = true;
-                xWins = false;
-                Console.WriteLine("O Wins");
-                marioWins.Play(1.0f, 0.0f, 0.0f);
+                if ('x' == Board.getState(board))
+                {
+                    aux = true;
+                    xWins = true;
+                    oWins = false;
+                    luigiWins.Play(1.0f, 0.0f, 0.0f);
+                    Console.WriteLine("X Wins");
+                }
+                if ('o' == Board.getState(board))
+                {
+                    aux = true;
+                    oWins = true;
+                    xWins = false;
+                    Console.WriteLine("O Wins");
+                    marioWins.Play(1.0f, 0.0f, 0.0f);
+                }
+                if ('d' == Board.getState(board))
+                {
+                    aux = true;
+                    draw = true;
+                    Console.WriteLine("Draw");
+                    drawSound.Play(1.0f, -1.0f, 0.0f);
+                }
             }
-            if ('d' == Board.getState(board))
-            {
-                aux = true;
-                draw = true;
-                Console.WriteLine("Draw");
-            }
-
             return aux;
         }
 
         public void playSound() {
-            if ((player % 2) == 0)
+            if (!endGame)
             {
-                if (!xWins)
+                if ((player % 2) == 0)
                 {
                     luigi.Play(1.0f, 0.0f, 0.0f);
                 }
-            }
-            else {
-                if (!oWins)
-                {
+                else {
                     mario.Play(1.0f, 0.0f, 0.0f);
                 }
             }
