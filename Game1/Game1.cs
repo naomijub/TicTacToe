@@ -317,7 +317,7 @@ namespace Game1
                     aux = true;
                     xWins = true;
                     oWins = false;
-                    luigiWins.Play(1.0f, 0.0f, 0.0f);
+                    luigiWins.Play(1.0f, -0.05f, 0.0f);
                     Console.WriteLine("X Wins");
                 }
                 if ('o' == Board.getState(board))
@@ -326,7 +326,7 @@ namespace Game1
                     oWins = true;
                     xWins = false;
                     Console.WriteLine("O Wins");
-                    marioWins.Play(1.0f, 0.0f, 0.0f);
+                    marioWins.Play(1.0f, 0.05f, 0.0f);
                 }
                 if ('d' == Board.getState(board))
                 {
@@ -344,10 +344,10 @@ namespace Game1
             {
                 if ((player % 2) == 0)
                 {
-                    luigi.Play(1.0f, 0.0f, 0.0f);
+                    luigi.Play(1.0f, -0.05f, 0.0f);
                 }
                 else {
-                    mario.Play(1.0f, 0.0f, 0.0f);
+                    mario.Play(1.0f, 0.05f, 0.0f);
                 }
             }
         }
