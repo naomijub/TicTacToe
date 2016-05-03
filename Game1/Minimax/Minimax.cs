@@ -16,7 +16,7 @@ namespace Game1.Minimax
         public int[] bestBoard(int[] board, int player) {
             Board table = new Board(board);
             IList<Board> boards = table.getPossibilities(player);
-            int aux = -1000, idx = 0;
+            int aux = int.MinValue, idx = 0; 
 
             for (int i = 0; i < boards.Count; i++)
             {
@@ -44,7 +44,7 @@ namespace Game1.Minimax
             }
             if (player == 2)
             {
-                value = 1000;
+                value = int.MaxValue;
                 IList<Board> boards = table.getPossibilities(player);
                 foreach (Board aux in boards)
                 {
@@ -52,7 +52,7 @@ namespace Game1.Minimax
                 }
             }
             else {
-                value = -1000;
+                value = int.MinValue;
                 IList<Board> boards = table.getPossibilities(player);
                 foreach (Board aux in boards)
                 {

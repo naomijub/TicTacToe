@@ -20,6 +20,7 @@ namespace Game1
         Button bEasy, bHard, b1P, b2P, bReset;
         Lines liner;
         Random rg;
+        ButtonClick but1, but2, butReset, butComp, butUser, butEasy, butHard;
 
         MouseState prevState;
         MouseState mouse;
@@ -28,6 +29,8 @@ namespace Game1
         int[] board;
         int player;
         bool but1Select, but2Select, endGame, draw, xWins, oWins, easy, hard, compStarts, userStarts, empty;
+
+        const int BOARD_MIN_X = 175, BOARD_MAX_X = 635, BOARD_MIN_Y = 75, BOARD_MAX_Y = 525, BOARD_CELL = 150, IMAGE_CELL_POSITION = 50;
 
         public Game1()
         {
@@ -68,6 +71,13 @@ namespace Game1
             bReset = new Button(350, 570, 375, 580, "Reset", button, Color.Black, font);
             b1P = new Button(278, 5, 298, 15, "1 Player", button, Color.Black, font);
             b2P = new Button(402, 5, 422, 15, "2 Player", button, Color.Black, font);
+            but1 = new ButtonClick(278, 398, 5, 55);
+            but2 = new ButtonClick(402, 520, 5, 55);
+            butReset = new ButtonClick(350, 470, 570, 620);
+            butComp = new ButtonClick(240, 320, 570, 650);
+            butUser = new ButtonClick(480, 560, 570, 650);
+            butEasy = new ButtonClick(40, 160, 540, 590);
+            butHard = new ButtonClick(40, 160, 600, 650);
             liner = new Lines(lines);
 
             rg = new Random();
@@ -133,6 +143,7 @@ namespace Game1
             base.Draw(gameTime);
         }
 
+        //draw methods
         public void drawButtons(SpriteBatch sb)
         {
             b1P.draw(sb, but1Select);
@@ -144,8 +155,8 @@ namespace Game1
             if (but1Select)
             {
                 liner.playerButtons(sb, compButton, persButton);
-                bEasy.draw(sb, false);
-                bHard.draw(sb, false);
+                bEasy.draw(sb, easy);
+                bHard.draw(sb, hard);
             }
         }
 
@@ -158,12 +169,13 @@ namespace Game1
         }
 
         public void drawBoard(SpriteBatch sb) {
-            int xo = 180;
-            int yo = 80;
+            int x0 = 180, y0 = 80;
+            
+            
             for (int i = 0; i < board.Length; i++) {
                 int x = i % 3;
                 int y = (int)(i / 3);
-                Vector2 pos = new Vector2(xo + (150 * x) + 50, yo + (150 * y) + 50);
+                Vector2 pos = new Vector2(x0 + (BOARD_CELL * x) + IMAGE_CELL_POSITION, y0 + (BOARD_CELL * y) + IMAGE_CELL_POSITION);
                 if (board[i] == 1)
                 {
                     sb.Draw(xTexture, pos, Color.White);
@@ -189,18 +201,11 @@ namespace Game1
             }
         }
 
+        //Updates
         public void buttonclick() {
             prevState = mouse;
             mouse = Mouse.GetState();
             int x = mouse.X, y = mouse.Y;
-            ButtonClick but1 = new ButtonClick(278, 398, 5, 55);
-            ButtonClick but2 = new ButtonClick(402, 520, 5, 55);
-            ButtonClick butReset = new ButtonClick(350, 470, 570, 620);
-            ButtonClick butComp = new ButtonClick(240, 320, 570, 650);
-            ButtonClick butUser = new ButtonClick(480, 560, 570, 650);
-            ButtonClick butEasy = new ButtonClick(40, 160, 540, 590);
-            ButtonClick butHard = new ButtonClick(40, 160, 600, 650);
-
 
             if (!but2Select)
             {
@@ -227,6 +232,7 @@ namespace Game1
                 empty = true;
                 table.reset();
                 player = 1;
+                Console.WriteLine("Reset");
             }
             if (butComp.state(x, y, mouse, prevState)
                 && but1Select && !userStarts)
@@ -234,6 +240,7 @@ namespace Game1
                 compStarts = true;
                 userStarts = false;
                 player = 0;
+                Console.WriteLine("Computer Starts");
             }
             if (butUser.state(x, y, mouse, prevState)
                 && but1Select && !compStarts)
@@ -241,6 +248,7 @@ namespace Game1
                 userStarts = true;
                 compStarts = false;
                 player = 1;
+                Console.WriteLine("User starts");
             }
             if (butEasy.state(x, y, mouse, prevState)
                 && !hard){
@@ -289,12 +297,12 @@ namespace Game1
         public void play2Players() {
             int x = mouse.X, y = mouse.Y;
 
-            if ((x >= 175 && x <= 635) && (y >= 75 && y <= 535)) {
+            if ((x >= BOARD_MIN_X && x <= BOARD_MAX_X) && (y >= BOARD_MIN_Y && y <= BOARD_MAX_Y )) {
                 if (mouse.LeftButton == ButtonState.Pressed && prevState.LeftButton == ButtonState.Released) {
-                    int index = (int)((x - 175) / 150) + (3 * (int)((y - 75) / 150));
+                    int index = (int)((x - BOARD_MIN_X) / BOARD_CELL) + (3 * (int)((y - BOARD_MIN_Y) / BOARD_CELL));
                     if (table.board[index] == 0)
                     {
-                        table.changeState((x - 175), (y - 75), ((player % 2) + 1));
+                        table.changeState((x - BOARD_MIN_X), (y - BOARD_MIN_Y), ((player % 2) + 1));
                         playSound();
                         changePlayer();
                     }
@@ -303,12 +311,8 @@ namespace Game1
             }
         }
 
-        public void changePlayer() {
-            player++;
-            
-        }
-
-        public bool gameEnded(GameTime gameTime) {
+        public bool gameEnded(GameTime gameTime)
+        {
             bool aux = false;
             if (timer(gameTime, 1500))
             {
@@ -339,6 +343,69 @@ namespace Game1
             return aux;
         }
 
+
+        //Aux update mathods
+        public void play(GameTime gameTime)
+        {
+            if (timer(gameTime, 2500))
+            {
+                if ((player % 2) == 0)
+                {
+                    randComputer();
+                }
+            }
+            if ((player % 2) == 1)
+            {
+                play2Players();
+            }
+        }
+
+        public void randComputer()
+        {
+            int index = availableSpace();
+            int x = ((index % 3) * 150) + 175;
+            int y = ((int)(index / 3) * 150) + 75;
+            table.changeState((x - 175), (y - 75), ((player % 2) + 1));
+            playSound();
+            changePlayer();
+        }
+
+        public void minimaxPlay(GameTime gameTime)
+        {
+            if ((player % 2) == 1)
+            {
+                play2Players();
+            }
+            if (timer(gameTime, 1000))
+            {
+                if ((player % 2) == 0)
+                {
+                    Minimax.Minimax minimax = new Minimax.Minimax();
+                    table.board = (int[])minimax.bestBoard(board, 1).Clone();
+                    playSound();
+                    changePlayer();
+                }
+            }
+        }
+
+        public bool timer(GameTime gameTime, int timeMod)
+        {
+            int time = (int)gameTime.TotalGameTime.Milliseconds;
+            Console.WriteLine(time);
+            if ((time % timeMod) == 0)
+            {
+                return true;
+            }
+            else {
+                return false;
+            }
+        }
+
+        public void changePlayer() {
+            player++;
+            
+        }
+        
         public void playSound() {
             if (!endGame)
             {
@@ -364,58 +431,6 @@ namespace Game1
             }
 
             return index;
-        }
-
-        public void play(GameTime gameTime) {
-            if (timer(gameTime, 2500))
-            {
-                if ((player % 2) == 0)
-                {
-                    randComputer();
-                }
-            }
-            if ((player % 2) == 1)
-            {
-                play2Players();
-            }
-        }
-
-        public void randComputer() {
-            int index = availableSpace();
-            int x = ((index % 3) * 150) + 175;
-            int y = ((int)(index / 3) * 150) + 75;
-            table.changeState((x - 175), (y - 75), ((player % 2) + 1));
-            playSound();
-            changePlayer();
-        }
-
-        public bool timer(GameTime gameTime, int timeMod) {
-            int time = (int)gameTime.TotalGameTime.Milliseconds;
-            Console.WriteLine(time);
-            if ((time % timeMod) == 0)
-            {
-                return true;
-            }
-            else {
-                return false;
-            }
-        }
-
-        public void minimaxPlay(GameTime gameTime) {
-            if ((player % 2) == 1)
-            {
-                play2Players();
-            }
-            if (timer(gameTime, 1000))
-            {
-                if ((player % 2) == 0)
-                {
-                    Minimax.Minimax minimax = new Minimax.Minimax();
-                    table.board = (int[])minimax.bestBoard(board, 1).Clone();
-                    playSound();
-                    changePlayer();
-                }
-            }
         }
     }
 }

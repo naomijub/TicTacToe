@@ -78,9 +78,6 @@ H:\Game1\Game1\bin\Windows\Debug\Content\luigi.xnb
 H:\Game1\Game1\bin\Windows\Debug\Content\luigiWins.xnb
 H:\Game1\Game1\bin\Windows\Debug\Content\mario.xnb
 H:\Game1\Game1\bin\Windows\Debug\Content\marioWins.xnb
-H:\Game1\Game1\bin\Windows\Debug\Content\button1p.png
-H:\Game1\Game1\bin\Windows\Debug\Content\button2p.png
-H:\Game1\Game1\bin\Windows\Debug\Content\buttonRst.png
 H:\Game1\Game1\bin\Windows\Debug\Content\console.jpg
 H:\Game1\Game1\bin\Windows\Debug\Content\luigi.wav
 H:\Game1\Game1\bin\Windows\Debug\Content\luigiWins.wav
@@ -138,3 +135,4 @@ H:\Game1\Game1\bin\Windows\Debug\Content\luigiWins.wma
 H:\Game1\Game1\bin\Windows\Debug\Content\mario.wma
 H:\Game1\Game1\bin\Windows\Debug\Content\marioWins.wma
 C:\Users\JAT\Desktop\Nova pasta\Game1\Game1\bin\Windows\Debug\Content\draw.xnb
+H:\Game1\Game1\bin\Windows\Debug\Content\draw.xnb
