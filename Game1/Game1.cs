@@ -66,11 +66,11 @@ namespace Game1
             marioWins = Content.Load<SoundEffect>("marioWins");
             drawSound = Content.Load<SoundEffect>("draw");
 
-            bEasy = new Button(40, 540, 70, 550, "Easy", button, Color.Red, font);
-            bHard = new Button(40, 600, 70, 610, "Hard", button, Color.Red, font);
-            bReset = new Button(350, 570, 375, 580, "Reset", button, Color.Black, font);
-            b1P = new Button(278, 5, 298, 15, "1 Player", button, Color.Black, font);
-            b2P = new Button(402, 5, 422, 15, "2 Player", button, Color.Black, font);
+            bEasy = new Button(40, 540, "Easy", button, Color.Red, font);
+            bHard = new Button(40, 600, "Hard", button, Color.Red, font);
+            bReset = new Button(350, 570, "Reset", button, Color.Black, font);
+            b1P = new Button(278, 5, "1 Player", button, Color.Black, font);
+            b2P = new Button(402, 5, "2 Player", button, Color.Black, font);
             but1 = new ButtonClick(278, 398, 5, 55);
             but2 = new ButtonClick(402, 520, 5, 55);
             butReset = new ButtonClick(350, 470, 570, 620);

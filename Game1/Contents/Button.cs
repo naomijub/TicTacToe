@@ -13,21 +13,22 @@ namespace Game1
 {
     public class Button
     {
-        private int x, y, xStr, yStr;
+        private int x, y;
+        private float xStrF, yStrF;
         private string name;
         public Color color { get; set; }
         private SpriteFont font;
         private Texture2D button;
 
-        public Button(int x, int y, int xStr, int yStr, string name, Texture2D button, Color color, SpriteFont font) {
+        public Button(int x, int y, string name, Texture2D button, Color color, SpriteFont font) {
             this.x = x;
             this.y = y;
-            this.xStr = xStr;
-            this.yStr = yStr;
             this.name = name;
             this.button = button;
             this.color = color;
             this.font = font;
+            this.xStrF = ((95 - font.MeasureString(name).X) / 2) + x;
+            this.yStrF = ((40 - font.MeasureString(name).Y) / 2) + y;
         }
 
         public void update() { }
@@ -38,7 +39,7 @@ namespace Game1
                 new Vector2(x, y),
                 colorize(selected)
                 );
-            sb.DrawString(font, name, new Vector2(xStr, yStr), color, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
+            sb.DrawString(font, name, new Vector2(xStrF, yStrF), color, 0f, Vector2.Zero, 1.5f, SpriteEffects.None, 0f);
         }
 
         public Color colorize(bool selected)
