@@ -4,11 +4,11 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>C:/Users/JAT/Desktop/Nova pasta/Game1/Game1/Content/luigi.wav</File>
-    <File>C:/Users/JAT/Desktop/Nova pasta/Game1/Game1/Content/luigiWins.wav</File>
-    <File>C:/Users/JAT/Desktop/Nova pasta/Game1/Game1/Content/mario.wav</File>
-    <File>C:/Users/JAT/Desktop/Nova pasta/Game1/Game1/Content/marioWins.wav</File>
-    <File>C:/Users/JAT/Desktop/Nova pasta/Game1/Game1/Content/font.spritefont</File>
-    <File>C:/Users/JAT/Desktop/Nova pasta/Game1/Game1/Content/draw.wav</File>
+    <File>E:/Game1/Game1/Content/luigi.wav</File>
+    <File>E:/Game1/Game1/Content/luigiWins.wav</File>
+    <File>E:/Game1/Game1/Content/mario.wav</File>
+    <File>E:/Game1/Game1/Content/marioWins.wav</File>
+    <File>E:/Game1/Game1/Content/font.spritefont</File>
+    <File>E:/Game1/Game1/Content/draw.wav</File>
   </SourceFiles>
 </SourceFileCollection>

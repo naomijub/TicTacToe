@@ -30,7 +30,7 @@ namespace Game1
         int player;
         bool but1Select, but2Select, endGame, draw, xWins, oWins, easy, hard, compStarts, userStarts, empty;
 
-        const int BOARD_MIN_X = 175, BOARD_MAX_X = 635, BOARD_MIN_Y = 75, BOARD_MAX_Y = 525, BOARD_CELL = 150, IMAGE_CELL_POSITION = 50;
+        const int BOARD_MIN_X = 175, BOARD_MAX_X = 625, BOARD_MIN_Y = 75, BOARD_MAX_Y = 525, BOARD_CELL = 150, IMAGE_CELL_POSITION = 50;
 
         public Game1()
         {
@@ -53,12 +53,12 @@ namespace Game1
         protected override void LoadContent()
         {
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            button = Content.Load<Texture2D>("button.png");
-            xTexture = Content.Load<Texture2D>("Char21.png");
-            oTexture = Content.Load<Texture2D>("Char33.png");
-            compButton = Content.Load<Texture2D>("console.jpg");
-            persButton = Content.Load<Texture2D>("Person.jpg");
-            bowser = Content.Load<Texture2D>("bowser.jpg");
+            button = Content.Load<Texture2D>("button");
+            xTexture = Content.Load<Texture2D>("Char21");
+            oTexture = Content.Load<Texture2D>("Char33");
+            compButton = Content.Load<Texture2D>("console");
+            persButton = Content.Load<Texture2D>("Person");
+            bowser = Content.Load<Texture2D>("bowser");
             font = Content.Load<SpriteFont>("font");
             luigi = Content.Load<SoundEffect>("luigi");
             mario = Content.Load<SoundEffect>("mario");
